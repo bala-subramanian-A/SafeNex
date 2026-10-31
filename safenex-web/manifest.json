@@ -1,0 +1,20 @@
+{
+  "name": "SAFENEX - Personal Emergency Safety System",
+  "short_name": "SAFENEX",
+  "description": "Mission-critical personal safety, ESP32 BLE wearable band integration, live GPS breadcrumbs, and rapid emergency response.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0A0E17",
+  "theme_color": "#0A0E17",
+  "categories": ["safety", "utilities", "lifestyle"],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FF1744'><path d='M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z'/></svg>",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

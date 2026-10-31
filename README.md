@@ -1,4 +1,4 @@
-﻿# Safenex-Band-BLE-Integration
+# Safenex-Band-BLE-Integration
 
 Personal Emergency Safety System with Bluetooth Low Energy (BLE) Wearable Band Integration, Android Application, and Progressive Web App.
 
@@ -68,10 +68,13 @@ Personal Emergency Safety System with Bluetooth Low Energy (BLE) Wearable Band I
 │   │   └── AndroidManifest.xml
 │   ├── build.gradle.kts
 │   └── build_apk.bat                 # Standalone APK compilation script
-└── safenex-web/                      # Progressive Web Application (PWA)
-    ├── index.html                    # Responsive Web App with Maps, Web Audio & Web Speech
-    ├── server.ps1                    # Local web server script
-    └── run_web.bat                   # Quick launcher
+└── safenex-web/                      # Progressive Web Application (PWA & Web Bluetooth)
+    ├── index.html                    # Responsive Command Center with Web Bluetooth, Maps & Web Audio
+    ├── manifest.json                 # PWA Manifest & App Configuration
+    ├── sw.js                         # Service Worker for Offline Caching
+    ├── server.ps1                    # Local PowerShell HTTP Web Server
+    ├── tcp_server.ps1                # Universal TCP Socket Server
+    └── run_web.bat                   # Quick Web Launcher
 ```
 
 ---
