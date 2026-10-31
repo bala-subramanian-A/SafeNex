@@ -11,7 +11,13 @@ if exist "C:\Program Files\Processing\app\resources\jdk\bin\java.exe" (
 )
 
 set "PATH=%JAVA_HOME%\bin;%PATH%"
-set "ANDROID_HOME=C:\Users\pream\AppData\Local\Android\Sdk"
+if not defined ANDROID_HOME (
+    if exist "%LOCALAPPDATA%\Android\Sdk" (
+        set "ANDROID_HOME=%LOCALAPPDATA%\Android\Sdk"
+    ) else if exist "C:\Users\pream\AppData\Local\Android\Sdk" (
+        set "ANDROID_HOME=C:\Users\pream\AppData\Local\Android\Sdk"
+    )
+)
 set "GRADLE_OPTS=-Dorg.gradle.jvmargs=-Xmx2048m -XX:MaxMetaspaceSize=512m"
 
 echo Using Java: %JAVA_HOME%

@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #070D12;
+    color: #F4FAFA;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Custom Scrollbars in Emerald / Dark */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070D12;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #24434A;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00E6A0;
+}
+
+/* Glassmorphism & Refined Borders */
+.glass-panel {
+  background: rgba(16, 31, 41, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(36, 67, 74, 0.85);
+}
+
+.glass-card-elevated {
+  background: rgba(20, 43, 53, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 230, 160, 0.2);
+}
+
+/* Glow Effects */
+.glow-emerald {
+  box-shadow: 0 0 25px rgba(0, 230, 160, 0.3);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 25px rgba(53, 221, 242, 0.3);
+}
+
+.glow-red {
+  box-shadow: 0 0 40px rgba(255, 48, 79, 0.65);
+}
+
+/* Button Gradients */
+.btn-emerald-gradient {
+  background: linear-gradient(135deg, #00E6A0 0%, #35DDF2 100%);
+  color: #070D12;
+  font-weight: 800;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-emerald-gradient:hover {
+  background: linear-gradient(135deg, #78FFD0 0%, #00E6A0 100%);
+  box-shadow: 0 4px 25px rgba(0, 230, 160, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-emerald-gradient:active {
+  transform: translateY(0);
+}
+
+.btn-sos-gradient {
+  background: radial-gradient(circle at 35% 35%, #FF5A73 0%, #FF304F 50%, #B80F2E 100%);
+  box-shadow: 0 0 45px rgba(255, 48, 79, 0.6), inset 0 2px 4px rgba(255, 255, 255, 0.4);
+  transition: all 0.15s ease-out;
+}
+
+.btn-sos-gradient:hover {
+  box-shadow: 0 0 60px rgba(255, 48, 79, 0.8), inset 0 2px 6px rgba(255, 255, 255, 0.5);
+  transform: scale(1.02);
+}
+
+.btn-sos-gradient:active {
+  transform: scale(0.97);
+}
+
+/* Card hover animation */
+.card-interactive {
+  transition: all 0.2s ease-in-out;
+}
+
+.card-interactive:hover {
+  border-color: rgba(0, 230, 160, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -6px rgba(7, 13, 18, 0.8);
+}
+
+/* Safe area insets for mobile */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 1rem);
+}
+
+/* Leaflet dark theme override */
+.leaflet-container {
+  background: #0B151D !important;
+  font-family: inherit !important;
+}
+
+.leaflet-tile {
+  filter: brightness(0.7) invert(1) contrast(3) hue-rotate(185deg) saturate(0.4) brightness(0.65) !important;
+}

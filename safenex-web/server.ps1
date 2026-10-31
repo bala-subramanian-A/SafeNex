@@ -1,11 +1,13 @@
-﻿$port = 8080
-$folder = "C:\Users\pream\.gemini\antigravity\scratch\safenex-web"
+$port = 8085
+$distFolder = Join-Path $PSScriptRoot "dist"
+$folder = if (Test-Path (Join-Path $distFolder "index.html")) { $distFolder } else { $PSScriptRoot }
 $listener = New-Object System.Net.HttpListener
 $listener.Prefixes.Add("http://localhost:$port/")
 $listener.Prefixes.Add("http://127.0.0.1:$port/")
 
 $listener.Start()
 Write-Host "SAFENEX Web Server running at http://localhost:$port/"
+Write-Host "Serving static files from: $folder"
 
 while ($listener.IsListening) {
     try {
@@ -20,6 +22,14 @@ while ($listener.IsListening) {
 
         $filePath = Join-Path $folder ($localPath.TrimStart('/').Replace('/', '\'))
 
+        # Fallback to index.html for SPA client-side routes if file doesn't exist
+        if (-not (Test-Path -Path $filePath -PathType Leaf)) {
+            $fallback = Join-Path $folder "index.html"
+            if (Test-Path -Path $fallback -PathType Leaf) {
+                $filePath = $fallback
+            }
+        }
+
         if (Test-Path $filePath -PathType Leaf) {
             $bytes = [System.IO.File]::ReadAllBytes($filePath)
             $ext = [System.IO.Path]::GetExtension($filePath).ToLower()
@@ -28,8 +38,12 @@ while ($listener.IsListening) {
                 ".css"  { "text/css; charset=utf-8" }
                 ".js"   { "application/javascript; charset=utf-8" }
                 ".json" { "application/json; charset=utf-8" }
+                ".webmanifest" { "application/manifest+json; charset=utf-8" }
                 ".png"  { "image/png" }
                 ".svg"  { "image/svg+xml" }
+                ".ico"  { "image/x-icon" }
+                ".mp4"  { "video/mp4" }
+                ".m4a"  { "audio/mp4" }
                 Default { "application/octet-stream" }
             }
             $response.ContentType = $contentType

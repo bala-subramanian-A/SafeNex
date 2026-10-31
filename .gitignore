@@ -10,6 +10,14 @@
 **/*.apk.sha1
 **/*.apk.sha256
 
+# Node & Web
+**/node_modules/
+**/dist/
+.vite/
+.env
+.env.local
+.env.*.local
+
 # Temporary & OS files
 Thumbs.db
 Desktop.ini

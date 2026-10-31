@@ -1,5 +1,5 @@
-﻿$port = 8080
-$folder = "C:\Users\pream\.gemini\antigravity\scratch\safenex-web"
+$port = 8080
+$folder = $PSScriptRoot
 $listener = [System.Net.Sockets.TcpListener]::new([System.Net.IPAddress]::Any, $port)
 $listener.Start()
 Write-Host "SAFENEX Universal Web Server running on port $port"
